@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DownloadManager Example</string>
+    <string name="download_file">Download File</string>
+
+
+    <string name="write_permission">"We need your permission to write to storage.
+        When asked please give the permission"</string>
+    <string name="write_permission_denied">Permission denied to write to storage</string>
+    <string name="check_status">Check Status</string>
+
+    <string name="starting_download">Starting download %1$s</string>
+    <string name="downloading_from">Downloading from: %1$s</string>
+</resources>
