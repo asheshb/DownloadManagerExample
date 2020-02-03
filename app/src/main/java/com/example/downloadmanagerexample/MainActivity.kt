@@ -25,9 +25,14 @@ const val PERMISSION_REQUEST_WRITE = 0
 class MainActivity : AppCompatActivity() {
     // Large file download url
     //private var downloadFileUrl = "https://www.hq.nasa.gov/alsj/a17/A17_FlightPlan.pdf"
-    private var downloadFileUrl =
-        "https://upload.wikimedia.org/wikipedia/commons/f/ff/Pizigani_1367_Chart_10MB.jpg"
+    //10 MB
+//    private var downloadFileUrl =
+//        "https://upload.wikimedia.org/wikipedia/commons/f/ff/Pizigani_1367_Chart_10MB.jpg"
+
+    //1 MB file
+    private var downloadFileUrl = "https://sample-videos.com/img/Sample-jpg-image-1mb.jpg"
     private var downloadFileName = "chart.jpg"
+
     private var downloadId = 0L
     private lateinit var downloadManager: DownloadManager
 
@@ -89,11 +94,14 @@ class MainActivity : AppCompatActivity() {
 
         if (cursor.moveToNext()) {
             val status: Int = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS))
+
             val totalSizeIndex = cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES)
             val downloadedIndex = cursor.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR)
+
             val totalSize = cursor.getInt(totalSizeIndex)
             val totalDownloaded = cursor.getLong(downloadedIndex)
             cursor.close()
+
             val statusData = when(status){
                 DownloadManager.STATUS_PENDING -> "Download pending. Please wait.."
                 DownloadManager.STATUS_SUCCESSFUL -> "Download successful"
